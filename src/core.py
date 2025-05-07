@@ -1,23 +1,34 @@
 import pygame
-from effects import Animation
+from exporter import PyGameRecorder
 
 class GarudaScene:
     def __init__(self):
+        pygame.init()
+        self.screen = pygame.display.set_mode((800, 400))
+        self.clock = pygame.time.Clock()
         self.mobjects = []
-        self.playbook = []
-        self.screen = pygame.display.set_mode((1280, 720))
         self.recorder = PyGameRecorder(self.screen)
 
     def add(self, mobject):
         self.mobjects.append(mobject)
 
-    def play(self, *animations, run_time=1):
-        for anim in animations:
-            anim.start(run_time)
-            while not anim.is_finished():
-                anim.update()
-                self.render()
-                self.recorder.capture()
+    def play(self, animation, run_time=2):
+        start_time = pygame.time.get_ticks()
+        duration = run_time * 1000
+        finished = False
+        while not finished:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    return
+            now = pygame.time.get_ticks()
+            alpha = min(1, (now - start_time) / duration)
+            animation.update(alpha)
+            self.render()
+            self.recorder.capture()
+            if alpha >= 1:
+                finished = True
+            self.clock.tick(30)
 
     def render(self):
         self.screen.fill((255,255,255))
