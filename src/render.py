@@ -43,3 +43,22 @@ class CodeObject:
             color = self.colors.get(token, "#000000")
             self.font.render_to(screen, (x, y), value, fgcolor=hex_to_rgb(color))
             x += self.font.get_rect(value).width
+
+
+class LegalObject:
+    def __init__(self, text, style="legal"):
+        self.text = text
+        self.visible_text = ""
+        self.font = pygame.freetype.SysFont("Arial", 24)
+        self.color = (0, 0, 0)
+
+    def draw(self, screen):
+        x, y = 50, 50
+        lines = (
+            self.visible_text.split("\n")
+            if self.visible_text
+            else self.text.split("\n")
+        )
+        for line in lines:
+            self.font.render_to(screen, (x, y), line, fgcolor=self.color)
+            y += 30
