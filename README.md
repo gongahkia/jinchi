@@ -17,12 +17,13 @@ $ cd jinchi
 $ make
 ```
 
-Then run either of the following.
+Then run any of the following.
 
 ### Flask Server
 
 ```console
-$ 
+$ cd flask_backend
+$ python3 app.py
 ```
 
 ### Django Server
@@ -30,6 +31,14 @@ $
 ```console
 $ cd django_backend
 $ python3 manage.py runserver
+```
+
+### Direct Script Interaction
+
+```console
+$ cd src
+$ python3 main.py program_code_example.py
+$ python3 main.py legal_text_example.txt
 ```
 
 ## Architecture
