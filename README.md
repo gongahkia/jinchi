@@ -1,3 +1,5 @@
+[![](https://img.shields.io/badge/jinchi_1.0.0-passing-green)](https://github.com/gongahkia/jinchi/releases/tag/1.0.0) 
+
 # `Jinchi`
 
 The poor man's [Manim](https://www.manim.community/), for [Code](https://www.geeksforgeeks.org/what-is-a-code-in-programming/) and [Legalese](https://www.merriam-webster.com/dictionary/legalese).
