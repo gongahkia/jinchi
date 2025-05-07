@@ -5,6 +5,7 @@ from exporter import PyGameRecorder
 
 # ----- class definitions -----
 
+
 class GarudaScene:
     def __init__(self):
         pygame.init()
@@ -35,7 +36,7 @@ class GarudaScene:
             self.clock.tick(30)
 
     def render(self):
-        self.screen.fill((255,255,255))
+        self.screen.fill((255, 255, 255))
         for mobj in self.mobjects:
             mobj.draw(self.screen)
         pygame.display.flip()

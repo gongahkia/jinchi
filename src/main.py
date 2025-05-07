@@ -8,6 +8,7 @@ import sys
 
 # ----- function definition -----
 
+
 def main():
     scene = GarudaScene()
     code = CodeObject("def hello():\n    print('Garuda!')", "python", style="monokai")
@@ -16,6 +17,7 @@ def main():
     scene.recorder.export("demo.mp4")
     pygame.quit()
     sys.exit()
+
 
 # ----- execution code -----
 

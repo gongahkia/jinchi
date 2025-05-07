@@ -7,14 +7,16 @@ import colorsys
 
 # ----- class definitions -----
 
+
 class TypewriterEffect:
     def __init__(self, text_obj):
         self.obj = text_obj
         self.visible_chars = 0
-        
+
     def update(self, alpha):
         self.visible_chars = int(alpha * len(self.obj.text))
-        self.obj.visible_text = self.obj.text[:self.visible_chars]
+        self.obj.visible_text = self.obj.text[: self.visible_chars]
+
 
 class FadeInEffect:
     def __init__(self, text_obj):
@@ -23,7 +25,8 @@ class FadeInEffect:
 
     def update(self, alpha):
         self.alpha = int(alpha * 255)
-        self.obj.alpha = self.alpha  
+        self.obj.alpha = self.alpha
+
 
 class BlinkEffect:
     def __init__(self, text_obj, blink_rate=2):
@@ -32,9 +35,9 @@ class BlinkEffect:
         self.visible = True
 
     def update(self, alpha):
-        time_sec = alpha * 2  
+        time_sec = alpha * 2
         self.visible = (int(time_sec * self.blink_rate) % 2) == 0
-        self.obj.visible = self.visible  
+        self.obj.visible = self.visible
 
 
 class SlideInEffect:
@@ -45,12 +48,13 @@ class SlideInEffect:
 
     def update(self, alpha):
         current_x = self.start_x + alpha * (self.end_x - self.start_x)
-        self.obj.x = current_x  
+        self.obj.x = current_x
+
 
 class ColorFadeEffect:
     def __init__(self, text_obj, start_color, end_color):
         self.obj = text_obj
-        self.start_color = start_color  
+        self.start_color = start_color
         self.end_color = end_color
 
     def update(self, alpha):
@@ -58,6 +62,7 @@ class ColorFadeEffect:
         g = int(self.start_color[1] + (self.end_color[1] - self.start_color[1]) * alpha)
         b = int(self.start_color[2] + (self.end_color[2] - self.start_color[2]) * alpha)
         self.obj.color = (r, g, b)
+
 
 class ScaleInEffect:
     def __init__(self, text_obj, start_scale=0.1, end_scale=1.0):
@@ -68,6 +73,7 @@ class ScaleInEffect:
     def update(self, alpha):
         self.obj.scale = self.start_scale + (self.end_scale - self.start_scale) * alpha
 
+
 class RotateInEffect:
     def __init__(self, text_obj, start_angle=90):
         self.obj = text_obj
@@ -75,6 +81,7 @@ class RotateInEffect:
 
     def update(self, alpha):
         self.obj.rotation = self.start_angle * (1 - alpha)
+
 
 class DropInEffect:
     def __init__(self, text_obj, start_y, end_y):
@@ -85,6 +92,7 @@ class DropInEffect:
     def update(self, alpha):
         self.obj.y = self.start_y + (self.end_y - self.start_y) * alpha
 
+
 class WaveEffect:
     def __init__(self, text_obj, amplitude=10, frequency=5):
         self.obj = text_obj
@@ -92,12 +100,19 @@ class WaveEffect:
         self.frequency = frequency
 
     def update(self, alpha):
-        text = self.obj.visible_text if hasattr(self.obj, 'visible_text') else self.obj.text
+        text = (
+            self.obj.visible_text
+            if hasattr(self.obj, "visible_text")
+            else self.obj.text
+        )
         offsets = []
         for i in range(len(text)):
-            offset = self.amplitude * math.sin(2 * math.pi * self.frequency * (alpha + i / 10.0))
+            offset = self.amplitude * math.sin(
+                2 * math.pi * self.frequency * (alpha + i / 10.0)
+            )
             offsets.append(offset)
-        self.obj.char_y_offsets = offsets  
+        self.obj.char_y_offsets = offsets
+
 
 class JitterEffect:
     def __init__(self, text_obj, intensity=3):
@@ -107,6 +122,7 @@ class JitterEffect:
     def update(self, alpha):
         self.obj.x_offset = random.randint(-self.intensity, self.intensity)
         self.obj.y_offset = random.randint(-self.intensity, self.intensity)
+
 
 class ZoomOutEffect:
     def __init__(self, text_obj, start_scale=1.0, end_scale=0.1):
@@ -118,12 +134,14 @@ class ZoomOutEffect:
         self.obj.scale = self.start_scale + (self.end_scale - self.start_scale) * alpha
         self.obj.alpha = int(255 * (1 - alpha))
 
+
 class UnderlineGrowEffect:
     def __init__(self, text_obj):
         self.obj = text_obj
 
     def update(self, alpha):
-        self.obj.underline_length = int(len(self.obj.text) * alpha)  
+        self.obj.underline_length = int(len(self.obj.text) * alpha)
+
 
 class LetterPopEffect:
     def __init__(self, text_obj):
@@ -134,9 +152,10 @@ class LetterPopEffect:
         scales = []
         for i in range(len(text)):
             letter_alpha = min(max((alpha * len(text)) - i, 0), 1)
-            scale = 0.5 + 0.5 * letter_alpha  
+            scale = 0.5 + 0.5 * letter_alpha
             scales.append(scale)
-        self.obj.char_scales = scales  
+        self.obj.char_scales = scales
+
 
 class RainbowEffect:
     def __init__(self, text_obj):
@@ -149,9 +168,11 @@ class RainbowEffect:
             hue = (alpha + i / len(text)) % 1.0
             rgb = hsv_to_rgb(hue, 1, 1)
             colors.append(rgb)
-        self.obj.char_colors = colors  
+        self.obj.char_colors = colors
+
 
 # ----- helper functions -----
+
 
 def hsv_to_rgb(h, s, v):
     r, g, b = colorsys.hsv_to_rgb(h, s, v)

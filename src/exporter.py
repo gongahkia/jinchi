@@ -6,6 +6,7 @@ import numpy as np
 
 # ----- class definitions -----
 
+
 class PyGameRecorder:
     def __init__(self, screen, fps=30):
         self.frames = []
@@ -14,7 +15,7 @@ class PyGameRecorder:
 
     def capture(self):
         arr = pygame.surfarray.array3d(self.screen)
-        arr = arr.transpose([1,0,2])
+        arr = arr.transpose([1, 0, 2])
         self.frames.append(arr.copy())
 
     def export(self, filename):
@@ -22,7 +23,9 @@ class PyGameRecorder:
             print("No frames to export!")
             return
         height, width = self.frames[0].shape[:2]
-        writer = cv2.VideoWriter(filename, cv2.VideoWriter_fourcc(*'mp4v'), self.fps, (width, height))
+        writer = cv2.VideoWriter(
+            filename, cv2.VideoWriter_fourcc(*"mp4v"), self.fps, (width, height)
+        )
         for frame in self.frames:
             writer.write(cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
         writer.release()
