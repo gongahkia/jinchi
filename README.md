@@ -4,6 +4,8 @@
 
 The poor man's [Manim](https://www.manim.community/), for [Code](https://www.geeksforgeeks.org/what-is-a-code-in-programming/) and [Legalese](https://www.merriam-webster.com/dictionary/legalese).
 
+`Jinchi` can be interfaced with through API calls via [Flask](#flask-backend) or [Django](#django-backend) servers, or run directly as a [local script](#direct-script).
+
 ## Stack
 
 * *Backend*: [Python](https://www.python.org/)
@@ -47,11 +49,15 @@ $ python3 main.py legal_text_example.txt
 
 ### Flask Backend
 
-![]()
+![](./asset/reference/jinchi_flask_api_architecture.png)
 
 ### Django Backend
 
-![]()
+![](./asset/reference/jinchi_django_api_architecture.png)
+
+### Direct Script 
+
+![](./asset/reference/jinchi_architecture.png)
 
 ## Reference
 

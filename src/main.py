@@ -1,6 +1,6 @@
 # ----- required imports -----
 
-from core import GarudaScene
+from core import JinchiScene
 from render import CodeObject
 from effects import TypewriterEffect
 import pygame
@@ -12,7 +12,7 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Garuda: Animated code/text visualizer"
+        description="Jinchi: Animated code/text visualizer"
     )
     parser.add_argument(
         "input_file",
@@ -29,7 +29,7 @@ def main():
         print(f"File '{args.input_file}' not found.")
         return
 
-    scene = GarudaScene()
+    scene = JinchiScene()
     code = CodeObject(code_text, "python", style="monokai")
     scene.add(code)
     scene.play(TypewriterEffect(code), run_time=2)

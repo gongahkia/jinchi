@@ -6,7 +6,7 @@ import uuid
 import sys
 import pygame
 from flask import Flask, request, send_file, jsonify
-from src.core import GarudaScene
+from src.core import JinchiScene
 from src.render import CodeObject, LegalObject
 from src.effects import TypewriterEffect
 from src.parsers import CodeParser, LegalParser
@@ -44,7 +44,7 @@ def animate_text():
             text_content = f.read()
 
         pygame.init()
-        scene = GarudaScene()
+        scene = JinchiScene()
 
         if file_type == "code":
             CodeParser().parse(text_content)

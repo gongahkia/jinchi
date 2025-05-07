@@ -6,7 +6,7 @@ from exporter import PyGameRecorder
 # ----- class definitions -----
 
 
-class GarudaScene:
+class JinchiScene:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((800, 400))

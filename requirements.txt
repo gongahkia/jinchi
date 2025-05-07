@@ -4,6 +4,6 @@ opencv-python
 pre-commit
 argparse
 flask
-djang
+django
 djangorestframework
-diagram
+diagrams
