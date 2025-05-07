@@ -25,4 +25,5 @@ class CodeExecutionVisualizer(GarudaScene):
 
 if __name__ == "__main__":
     scene = CodeExecutionVisualizer()
-    scene.render().export("code_animation.mp4")
+    scene.construct()  # Build animations
+    scene.render().export("code_animation.mp4")  # Now works

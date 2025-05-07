@@ -1,5 +1,12 @@
 from pygments.lexer import RegexLexer
 from pygments import token
+from pygments.lexers import PythonLexer, get_lexer_by_name
+
+class CodeLexer(PythonLexer):  
+    name = 'Code'
+    aliases = ['code']
+    def get_tokens_unprocessed(self, text):
+        yield from super().get_tokens_unprocessed(text)
 
 class LegalLexer(RegexLexer):
     name = 'Legal'
