@@ -1,7 +1,11 @@
+# ----- required imports -----
+
 import pygame.freetype
 from pygments import lex
 from pygments.lexers import get_lexer_by_name
 from pygments.styles import get_style_by_name
+
+# ----- function definition -----
 
 def get_token_colors(style_name):
     style = get_style_by_name(style_name)
@@ -11,6 +15,8 @@ def get_token_colors(style_name):
 def hex_to_rgb(hex_color):
     hex_color = hex_color.lstrip('#')
     return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+
+# ----- class definitions -----
 
 class CodeObject:
     def __init__(self, text, language='python', style='monokai'):

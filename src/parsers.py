@@ -1,3 +1,5 @@
+# ----- class definitions -----
+
 class LegalParser:
     def parse(self, text):
         return [self._process_section(s) for s in text.split('\n\n')]

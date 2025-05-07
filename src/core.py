@@ -1,5 +1,9 @@
+# ----- required imports -----
+
 import pygame
 from exporter import PyGameRecorder
+
+# ----- class definitions -----
 
 class GarudaScene:
     def __init__(self):
