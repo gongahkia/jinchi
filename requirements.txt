@@ -6,3 +6,4 @@ argparse
 flask
 djang
 djangorestframework
+diagram

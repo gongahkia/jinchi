@@ -1,14 +1,36 @@
 # `Jinchi`
 
-...
-
-## Usage
-
-...
+The poor man's [Manim](https://www.manim.community/), for [Code](https://www.geeksforgeeks.org/what-is-a-code-in-programming/) and [Legalese](https://www.merriam-webster.com/dictionary/legalese).
 
 ## Stack
 
-...
+* *Backend*: [Python](https://www.python.org/)
+* *Framework*: [Flask](https://flask.palletsprojects.com/en/stable/), [Django](https://www.djangoproject.com/)
+
+## Usage
+
+First run the below.
+
+```console
+$ git clone https://github.com/gongahkia/jinchi
+$ cd jinchi
+$ make
+```
+
+Then run either of the following.
+
+### Flask Server
+
+```console
+$ 
+```
+
+### Django Server
+
+```console
+$ cd django_backend
+$ python3 manage.py runserver
+```
 
 ## Architecture
 
