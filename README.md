@@ -2,9 +2,9 @@
 
 # `Jinchi`
 
-The poor man's [Manim](https://www.manim.community/), for [Code](https://www.geeksforgeeks.org/what-is-a-code-in-programming/) and [Legalese](https://www.merriam-webster.com/dictionary/legalese).
+The poor man's [Manim](https://www.manim.community/).
 
-`Jinchi` can be interfaced with through API calls via [Flask](#flask-backend) or [Django](#django-backend) servers, or run directly as a [local script](#direct-script).
+`Jinchi` generates animations for [Code](https://www.geeksforgeeks.org/what-is-a-code-in-programming/) and [Legalese](https://www.merriam-webster.com/dictionary/legalese). It can be interfaced with through API calls via [Flask](#flask-backend) and [Django](#django-backend) servers, or run directly as a [local script](#direct-script).
 
 ## Stack
 
