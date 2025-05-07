@@ -26,7 +26,7 @@ Then run any of the following.
 ### Flask Server
 
 ```console
-$ cd flask_backend
+$ cd flask-backend
 $ python3 app.py
 ```
 
